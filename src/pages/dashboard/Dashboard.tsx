@@ -2,7 +2,6 @@ import { useState } from "react";
 import Avatar from "../../assets/Rectangle 2.png";
 import { Camera } from "iconsax-react";
 import { BsPlus } from "react-icons/bs";
-import ModalPopup from "../../components/ModalPopup";
 
 const Dashboard = () => {
   const [imgUrl, setImgUrl] = useState<string>(Avatar);
@@ -17,7 +16,7 @@ const Dashboard = () => {
   };
   return (
     <>
-      <section className="grid grid-cols-[2fr_1fr] gap-x-8">
+      <section className="w-full pb-20 pt-10 lg:grid lg:grid-cols-[2fr_1fr] lg:gap-x-8 lg:pb-0 lg:pt-0">
         <div className="space-y-6">
           {/* USER GREETINGS */}
           <div className="relative rounded-md bg-blue-100 p-6">
@@ -30,7 +29,7 @@ const Dashboard = () => {
               <p className="text-cyan-900">What would you like to do today?</p>
             </div>
 
-            <div className="absolute right-6 top-1/2 -translate-y-1/2">
+            <div className="absolute right-6 top-1/2 hidden -translate-y-1/2 sm:inline-block">
               <img
                 src={imgUrl}
                 alt="avatar"
@@ -52,6 +51,9 @@ const Dashboard = () => {
                 onChange={(e) => handleChange(e)}
               />
             </div>
+            <button className="mt-3 inline-flex cursor-pointer items-center gap-2 rounded-md bg-cyan-900 px-4 py-3 text-sm font-medium text-white duration-300 hover:bg-cyan-800">
+              <BsPlus size={24} /> Add Dependent
+            </button>
           </div>
 
           {/* MEDICATION MANAGEMENT OVERVIEW */}
@@ -80,7 +82,7 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col gap-y-6">
+        <div className="mt-6 flex flex-col gap-y-6 lg:mt-0">
           <div className="flex-grow rounded-md border-2 border-dashed border-stone-300 p-6">
             <p className="text-sm font-medium text-cyan-900">
               Adherence tracking
@@ -93,13 +95,11 @@ const Dashboard = () => {
             </div>
           </div>
           <div className="flex-grow rounded-md border-2 border-dashed border-stone-300 p-6">
-            <p className="text-sm font-medium text-cyan-900">
-              Adherence tracking
-            </p>
+            <p className="text-sm font-medium text-cyan-900">Reminder notes</p>
 
             <div className={`flex h-[200px] items-center justify-center`}>
               <button className="inline-flex cursor-pointer items-center gap-2 text-sm font-medium text-cyan-900">
-                <BsPlus size={24} /> Add tracking details
+                <BsPlus size={24} /> Add notes here
               </button>
             </div>
           </div>
@@ -107,13 +107,13 @@ const Dashboard = () => {
       </section>
 
       {/* <Modal /> */}
-      <ModalPopup
+      {/* <ModalPopup
         title={""}
         buttonText={""}
         onClick={function (): void {
           throw new Error("Function not implemented.");
         }}
-      />
+      /> */}
     </>
   );
 };

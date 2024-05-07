@@ -1,3 +1,5 @@
+import Button from "./Button";
+
 type PopupProps = {
   title: string;
   content?: string;
@@ -19,12 +21,12 @@ const ModalPopup: React.FC<PopupProps> = ({
           {content && <p className="text-balance text-cyan-900">{content}</p>}
         </div>
 
-        <button
-          className="w-2/3 rounded-md bg-cyan-900 py-3 text-white hover:bg-cyan-800"
-          onClick={onClick}
-        >
-          {buttonText}
-        </button>
+        <Button
+          type="button"
+          children={buttonText}
+          className={"w-2/3"}
+          onclick={onClick}
+        />
       </div>
     </div>
   );

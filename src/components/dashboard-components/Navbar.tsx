@@ -1,14 +1,20 @@
 import { BsBell, BsPersonCircle, BsPlus } from "react-icons/bs";
 import { CgSearch } from "react-icons/cg";
+import Medassist from "../../assets/medassist.svg";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <header>
+    <header className="fixed left-0 top-0 z-[999] w-full border-b bg-white px-4 py-4 lg:bg-transparent">
       <div className="flex items-center justify-between gap-4">
-        {/* <div>
-                  h1
-              </div> */}
-        <label htmlFor="search" className="relative block w-1/2">
+        <Link to={"/"} className="inline-block">
+          <img
+            src={Medassist}
+            alt="MedAssist Logo"
+            className="w-[150px] cursor-pointer"
+          />
+        </Link>
+        <label htmlFor="search" className="relative hidden w-1/2 lg:block">
           <input
             type="text"
             name="search"
@@ -22,7 +28,7 @@ const Navbar = () => {
         </label>
 
         <div className="flex items-center gap-6">
-          <button className="inline-flex items-center justify-center gap-2 rounded-md bg-cyan-900 px-5 py-3 text-white duration-300 hover:bg-cyan-800">
+          <button className="hidden items-center justify-center gap-2 rounded-md bg-cyan-900 px-5 py-3 text-white duration-300 hover:bg-cyan-800 lg:inline-flex">
             <BsPlus size={24} /> Add Dependant
           </button>
           <span className="relative inline-block cursor-pointer text-cyan-900 duration-300 hover:text-cyan-800">

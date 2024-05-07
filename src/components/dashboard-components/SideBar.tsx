@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import Medassist from "../assets/medassist.svg";
+import Medassist from "../../assets/medassist.svg";
 import { Driver, Element3, Health, HeartAdd, Logout, Pet } from "iconsax-react";
 import { BsBell } from "react-icons/bs";
 
@@ -38,7 +38,7 @@ const sideBarLinks = [
 
 const SideBar = () => {
   return (
-    <aside className="h-screen w-full bg-blue-100">
+    <aside className="hidden h-screen w-full bg-blue-100 lg:block">
       <Link to={"/"} className="inline-block px-8 py-5">
         <img
           src={Medassist}

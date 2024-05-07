@@ -1,11 +1,5 @@
-import { Outlet } from "react-router-dom";
-
-const AppLayout = () => {
-  return (
-    <div>
-      <Outlet />
-    </div>
-  );
+const AppLayout = ({ children }: { children: React.ReactNode }) => {
+  return <div>{children}</div>;
 };
 
 export default AppLayout;
