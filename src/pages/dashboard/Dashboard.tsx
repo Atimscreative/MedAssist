@@ -2,10 +2,21 @@ import { useState } from "react";
 import Avatar from "../../assets/Rectangle 2.png";
 import { Camera } from "iconsax-react";
 import { BsPlus } from "react-icons/bs";
+import moment from "moment";
+import Navbar from "../../components/dashboard-components/Navbar";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
+import { openAddDependant } from "../../redux/features/overlay/dependantSlice";
+import AddDependant from "../../components/dashboard-components/AddDependant";
 
 const Dashboard = () => {
   const [imgUrl, setImgUrl] = useState<string>(Avatar);
   const [image, setImage] = useState<File | null>(null);
+  const addDependant = useSelector(
+    (state: RootState) => state.dependant.addDependant,
+  );
+  const dispatch = useDispatch();
+  const currentDate = new Date();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files && e.target.files[0];
@@ -16,16 +27,17 @@ const Dashboard = () => {
   };
   return (
     <>
-      <section className="w-full pb-20 pt-10 lg:grid lg:grid-cols-[2fr_1fr] lg:gap-x-8 lg:pb-0 lg:pt-0">
+      <Navbar />
+      <section className="w-full pb-20 pt-10 lg:grid lg:grid-cols-[2fr_1fr] lg:gap-x-8 lg:pb-0 lg:pt-10">
         <div className="space-y-6">
           {/* USER GREETINGS */}
           <div className="relative rounded-md bg-blue-100 p-6">
             <span className="inline-block rounded bg-white bg-opacity-55 p-2">
-              Nov. 22, 2024
+              {moment(currentDate).format("MMM. DD, YYYY")}
             </span>
 
             <div className="mt-6">
-              <h1 className="text-2xl font-bold">Good day, Chinonye</h1>
+              <h1 className="text-2xl">Good day, Chinonye</h1>
               <p className="text-cyan-900">What would you like to do today?</p>
             </div>
 
@@ -51,7 +63,10 @@ const Dashboard = () => {
                 onChange={(e) => handleChange(e)}
               />
             </div>
-            <button className="mt-3 inline-flex cursor-pointer items-center gap-2 rounded-md bg-cyan-900 px-4 py-3 text-sm font-medium text-white duration-300 hover:bg-cyan-800">
+            <button
+              onClick={() => dispatch(openAddDependant())}
+              className="mt-3 inline-flex cursor-pointer items-center gap-2 rounded-md bg-cyan-900 px-4 py-3 text-sm font-medium text-white duration-300 hover:bg-cyan-800"
+            >
               <BsPlus size={24} /> Add Dependent
             </button>
           </div>
@@ -106,14 +121,7 @@ const Dashboard = () => {
         </div>
       </section>
 
-      {/* <Modal /> */}
-      {/* <ModalPopup
-        title={""}
-        buttonText={""}
-        onClick={function (): void {
-          throw new Error("Function not implemented.");
-        }}
-      /> */}
+      <AddDependant />
     </>
   );
 };

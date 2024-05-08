@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import toggleModalReducer from "../redux/features/overlay/toggleModalSlice";
+import addDependantReducer from "../redux/features/overlay/dependantSlice";
 
 export const store = configureStore({
   reducer: {
     toggle: toggleModalReducer,
+    dependant: addDependantReducer,
   },
 });
 

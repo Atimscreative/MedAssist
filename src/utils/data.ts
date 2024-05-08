@@ -1,3 +1,10 @@
+import Img1 from "../assets/Frame 1000004004-1.png";
+import Img2 from "../assets/Frame 1000004004.png";
+import Img3 from "../assets/Frame 1000004008-1.png";
+import Img4 from "../assets/Frame 1000004008.png";
+import Img5 from "../assets/Frame 1000004032-1.png";
+import Img6 from "../assets/Frame 1000004032.png";
+
 export const checkboxOptions = [
   { label: "Get medication reminders", name: "medicationReminders" },
   { label: "Track whether I took my medication", name: "trackMedication" },
@@ -30,4 +37,49 @@ export const checkboxOptions2 = [
   { name: "every_x_weeks", label: "Every X weeks" },
   { name: "every_x_months", label: "Every X months" },
   { name: "only_as_needed", label: "Only as needed" },
+];
+
+export const resources = [
+  {
+    title: "Health benefits of paracetamol",
+    type: "Video",
+    duration: "03:23",
+    image: Img1,
+  },
+  {
+    title: "Side effects of paracetamol",
+    type: "article",
+    duration: "03:23",
+    image: Img2,
+  },
+  {
+    title: "Uses of paracetamol",
+    type: "Video",
+    duration: "03:23",
+    image: Img3,
+  },
+  {
+    title: "Benefits of taking paracetamol",
+    type: "article",
+    duration: "03:23",
+    image: Img4,
+  },
+  {
+    title: "How paracetamol works",
+    type: "Video",
+    duration: "03:23",
+    image: Img5,
+  },
+  {
+    title: "Paracetamol dosage guide",
+    type: "article",
+    duration: "03:23",
+    image: Img6,
+  },
+  {
+    title: "Paracetamol: A comprehensive guide",
+    type: "Video",
+    duration: "03:23",
+    image: Img3,
+  },
 ];

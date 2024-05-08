@@ -1,7 +1,11 @@
-
+import Header from "../../components/dashboard-components/Header";
 
 const HealthcareProviders = () => {
-  return <div>HealthcareProviders</div>;
+  return (
+    <>
+      <Header pageTitle="Book an health provider" />
+    </>
+  );
 };
 
 export default HealthcareProviders;
