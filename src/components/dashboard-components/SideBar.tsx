@@ -43,7 +43,7 @@ const sideBarLinks = [
   },
 ];
 
-const SideBar = () => {
+const SideBar = ({ setIsOpen }: { setIsOpen?: any }) => {
   return (
     <aside className="h-screen w-full bg-blue-100">
       <Link to={"/"} className="inline-block px-8 py-5">
@@ -58,6 +58,7 @@ const SideBar = () => {
           <NavLink
             key={index}
             to={item.link}
+            onClick={() => setIsOpen(false)}
             className={({ isActive, isPending }) =>
               isActive
                 ? "flex w-full items-center gap-3 bg-cyan-900 px-8 py-4 font-medium text-white duration-300"

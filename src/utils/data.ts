@@ -83,3 +83,26 @@ export const resources = [
     image: Img3,
   },
 ];
+
+export const relationship = [
+  "Parent",
+  "Child",
+  "Sibling",
+  "Spouse",
+  "Partner",
+  "Friend",
+  "Colleague",
+  "Teacher",
+  "Student",
+  "Mentor",
+  "Mentee",
+  "Employer",
+  "Employee",
+  "Supervisor",
+  "Subordinate",
+  "Relative",
+  "Neighbor",
+  "Acquaintance",
+  "Roommate",
+  "Others",
+];
