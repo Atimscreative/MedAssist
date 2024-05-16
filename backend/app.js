@@ -1,22 +1,22 @@
-const express = require("express");
-const mongoose = require("mongoose");
+const express = require('express');
+const mongoose = require('mongoose');
 const app = express();
+const dotenv = require('dotenv');
+dotenv.config({ path: './.env' });
 app.use(express.json());
 
-app.get("/", function (req, res) {
-  res.send("Hello World");
+app.get('/', function (req, res) {
+  res.send('Hello World');
 });
 
 mongoose
-  .connect(
-    "mongodb+srv://dbMedAssist:MedAssist@2024@clustermedassist.5kyllql.mongodb.net/medassist?retryWrites=true&w=majority&appName=ClusterMedAssist",
-  )
+  .connect(process.env.DB_STRING)
   .then(() => {
-    console.log("Database Connected!");
-    app.listen(3000, () => {
-      console.log("App Connected and running!");
+    console.log('Database Connected!');
+    app.listen(process.env.PORT, () => {
+      console.log('App Connected and running!');
     });
   })
   .catch(() => {
-    console.log("Failed to connect");
+    console.log('Failed to connect');
   });

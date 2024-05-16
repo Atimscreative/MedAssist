@@ -107,7 +107,7 @@ const AddDependant = () => {
               />
             </div>
 
-            <div className="space-y-3 sm:mt-8">
+            <div className="space-y-3 sm:mt-3">
               <label htmlFor="firstName" className="block">
                 <span className="mb-1 inline-block font-semibold">
                   First name

@@ -1,7 +1,13 @@
-import { BsPlus } from "react-icons/bs";
-import Header from "../../components/dashboard-components/Header";
+import { BsPlus } from 'react-icons/bs';
+import Header from '../../components/dashboard-components/Header';
+import { useState } from 'react';
+import AddMedication from '../../components/dashboard-components/modals/AddMedication';
+
+const steps = ['add medications', 'usage'];
 
 const MedicationManagement = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  
   return (
     <>
       <Header pageTitle="Manage your medication" />
@@ -12,11 +18,16 @@ const MedicationManagement = () => {
         </p>
 
         <div className={`flex items-center justify-center pb-9 pt-12`}>
-          <button className="inline-flex cursor-pointer items-center gap-2 text-sm font-medium text-cyan-900">
+          <button
+            onClick={() => setIsOpen(true)}
+            className="inline-flex cursor-pointer items-center gap-2 text-sm font-medium text-cyan-900"
+          >
             <BsPlus size={24} /> Add a medication
           </button>
         </div>
       </div>
+
+      <AddMedication setIsOpen={setIsOpen} isOpen={isOpen} />
     </>
   );
 };
