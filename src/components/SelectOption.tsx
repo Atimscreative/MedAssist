@@ -54,7 +54,7 @@ const SelectOption: React.FC<SelectProps> = ({ options }) => {
   };
 
   return (
-    <div ref={selectRef} className="relative">
+    <div ref={selectRef} className="relative w-full">
       <label htmlFor="medSearch" className="relative inline-block w-full">
         <input
           type="text"
@@ -63,7 +63,7 @@ const SelectOption: React.FC<SelectProps> = ({ options }) => {
           value={searchQuery}
           onChange={handleInputChange}
           onFocus={toggleDropdown} // Open dropdown when input is focused
-          className="form-input rounded-md focus:border-cyan-900 focus:ring-cyan-900"
+          className="form-input w-full rounded-md focus:border-cyan-900 focus:ring-cyan-900"
           placeholder="Search..."
         />
         <span className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400">

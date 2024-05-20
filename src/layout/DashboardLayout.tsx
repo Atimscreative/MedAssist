@@ -10,7 +10,7 @@ const DashboardLayout = () => {
         <div className="hidden lg:block">
           <SideBar />
         </div>
-        <main className="overflow-y-auto lg:h-screen lg:p-6">
+        <main className="overflow-y-auto px-4 pt-24 lg:h-screen lg:p-6">
           <Outlet />
         </main>
       </section>

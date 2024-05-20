@@ -4,7 +4,13 @@ import { drugs as medications } from '../../../utils/medication';
 import { CgSearch } from 'react-icons/cg';
 import Button from '../../Button';
 import SelectOption from '../../SelectOption';
-import { durationOptions, medForm } from '../../../utils/data';
+import {
+  durationOptions,
+  medForm,
+  timeIntervalOptions,
+} from '../../../utils/data';
+import MedicationInfos from './Medication';
+import EachElement from '../../../utils/helper/EachElement';
 
 type AddMedProps = {
   isOpen: boolean;
@@ -52,6 +58,17 @@ const MedicationList = ({ onClick }: { onClick: any }) => {
 
       <div className="hide-scroll-bar mt-5 h-[300px] w-full overflow-auto rounded border border-stone-300 px-6">
         <div>
+          <EachElement
+            of={drugs}
+            render={(drug: any, index: number) => (
+              <div
+                key={index}
+                className="border-b py-4 capitalize text-neutral-500 last:border-none"
+              >
+                {drug}
+              </div>
+            )}
+          />
           {drugs.map((drug: any) => (
             <div
               key={drug}
@@ -83,71 +100,6 @@ const MedicationList = ({ onClick }: { onClick: any }) => {
   );
 };
 
-function MedicationInfos() {
-  return (
-    <div className="p-6">
-      <div className="w-full rounded border border-stone-300 p-6">
-        <div className="mb-4">
-          {/* MEDICATION FORM */}
-          <h3 className="mb-1 text-lg font-normal">
-            What form is the medication
-          </h3>
-          <p>Select the form</p>
-        </div>
-        <div className="flex flex-wrap items-center gap-3">
-          <SelectOption options={medForm} />
-        </div>
-        <hr className="my-6 border-0 border-t-2 " />
-        {/* DURATION OF USAGE */}
-        <div className="mb-4">
-          <h3 className="mb-1 text-lg font-normal">Duration of usage</h3>
-          <p>For how long will you be taking it?</p>
-        </div>
-        <div className="flex items-center gap-3">
-          {durationOptions.map((option: any, index: number) => (
-            <span
-              key={index}
-              className="inline-block cursor-pointer rounded-[50px] border-2 border-cyan-900 px-6 py-2 text-sm font-semibold duration-300 hover:bg-cyan-900 hover:text-white"
-            >
-              {option.label}
-            </span>
-          ))}
-        </div>
-        {/* TIME INTERVAL */}
-        <div className="my-4 mt-6">
-          <h3 className="mb-1 text-lg font-normal">
-            How often do you take it?
-          </h3>
-          <p> What time interval do you use the drug</p>
-        </div>
-        <div className="flex items-center gap-3">
-          <span className="inline-block cursor-pointer rounded-[50px] border-2 border-cyan-900 px-6 py-2 text-sm font-semibold duration-300 hover:bg-cyan-900 hover:text-white">
-            Once daily
-          </span>
-          <span className="inline-block cursor-pointer rounded-[50px] border-2 border-cyan-900 px-6 py-2 text-sm font-semibold duration-300 hover:bg-cyan-900 hover:text-white">
-            Twice daily
-          </span>
-          <span className="inline-block cursor-pointer rounded-[50px] border-2 border-cyan-900 px-6 py-2 text-sm font-semibold duration-300 hover:bg-cyan-900 hover:text-white">
-            Thrice daily
-          </span>
-          <span className="inline-block cursor-pointer rounded-[50px] border-2 border-cyan-900 px-6 py-2 text-sm font-semibold duration-300 hover:bg-cyan-900 hover:text-white">
-            Others
-          </span>
-        </div>
-      </div>
-
-      <div className="mt-6 flex justify-end">
-        <Button
-          type="button"
-          className="rounded-md bg-cyan-900 px-10 py-3 text-sm text-white duration-300 hover:bg-cyan-800"
-        >
-          Save
-        </Button>
-      </div>
-    </div>
-  );
-}
-
 const AddMedication: React.FC<AddMedProps> = ({ isOpen, setIsOpen }) => {
   const [currentStep, setCurrentStep] = useState(0);
 
@@ -177,13 +129,13 @@ const AddMedication: React.FC<AddMedProps> = ({ isOpen, setIsOpen }) => {
           : 'pointer-events-none opacity-0',
       )}
     >
-      <div className="hide-scroll-bar h-min overflow-y-auto py-2 lg:py-8">
-        <div className="relative rounded-[20px] bg-white sm:w-[500px] md:w-[600px]">
-          <div className="rounded-[20px] bg-blue-100 p-6 py-6 pt-11 text-center">
+      <div className="hide-scroll-bar h-min w-full overflow-y-auto py-2 lg:py-8">
+        <div className="relative rounded-[20px] bg-white sm:w-[500px] md:w-full">
+          <div className="rounded-[20px] bg-blue-100 p-6 py-6 text-center md:pt-11">
             <h2 className="mb-2 text-2xl">Add Medications</h2>
             <p className="text-sm">Add to your medications</p>
 
-            <div className={`mt-12 h-1 w-full bg-blue-50`}>
+            <div className={`mt-7 h-1 w-full bg-blue-50`}>
               <div
                 className={twMerge(
                   'h-1 w-1/2 bg-black',

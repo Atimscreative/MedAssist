@@ -1,18 +1,21 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Dashboard from "./pages/dashboard/Dashboard";
-import "./App.css";
-import DashboardLayout from "./layout/DashboardLayout";
-import MedicationManagement from "./pages/dashboard/MedicationManagement";
-import AdherenceTracking from "./pages/dashboard/AdherenceTracking";
-import Reminders from "./pages/dashboard/Reminders";
-import EducationalResources from "./pages/dashboard/EducationalResources";
-import HealthcareProviders from "./pages/dashboard/HealthcareProviders";
-import SignIn from "./pages/onboading/SignIn";
-import SignUp from "./pages/onboading/SignUp";
-import { Home } from "iconsax-react";
-import Onboarding from "./pages/onboading/Onboarding";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Dashboard from './pages/dashboard/Dashboard';
+import './App.css';
+import DashboardLayout from './layout/DashboardLayout';
+import MedicationManagement from './pages/dashboard/MedicationManagement';
+import AdherenceTracking from './pages/dashboard/AdherenceTracking';
+import Reminders from './pages/dashboard/Reminders';
+import EducationalResources from './pages/dashboard/EducationalResources';
+import HealthcareProviders from './pages/dashboard/HealthcareProviders';
+import SignIn from './pages/onboading/SignIn';
+import SignUp from './pages/onboading/SignUp';
+import Onboarding from './pages/onboading/Onboarding';
+import EducationalResource from './pages/dashboard/EducationalResource';
+import Home from './pages/Home';
 
 // Cyan900, blue-100 neutral900
+
+console.log(process.env.NODE_ENV);
 
 const App = () => {
   return (
@@ -39,6 +42,10 @@ const App = () => {
           <Route
             path="/educational-resources"
             element={<EducationalResources />}
+          />
+          <Route
+            path="/educational-resources/:slug"
+            element={<EducationalResource />}
           />
           <Route
             path="/healthcare-providers"
