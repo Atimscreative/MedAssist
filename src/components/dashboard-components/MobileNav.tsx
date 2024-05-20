@@ -1,13 +1,13 @@
-import { BsBell, BsPersonCircle, BsPlus, BsX } from "react-icons/bs";
-import { CgSearch } from "react-icons/cg";
-import Medassist from "../../assets/medassist.svg";
-import { Link } from "react-router-dom";
-import { HambergerMenu } from "iconsax-react";
-import SideBar from "./SideBar";
-import { useState } from "react";
-import { twMerge } from "tailwind-merge";
-import { openAddDependant } from "../../redux/features/overlay/dependantSlice";
-import { useDispatch } from "react-redux";
+import { BsBell, BsPersonCircle, BsPlus, BsX } from 'react-icons/bs';
+// import { CgSearch } from "react-icons/cg";
+import Medassist from '../../assets/medassist.svg';
+import { Link } from 'react-router-dom';
+import { HambergerMenu } from 'iconsax-react';
+import SideBar from './SideBar';
+import { useState } from 'react';
+import { twMerge } from 'tailwind-merge';
+import { openAddDependant } from '../../redux/features/overlay/dependantSlice';
+import { useDispatch } from 'react-redux';
 
 const MobileNav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,8 +22,8 @@ const MobileNav = () => {
               onClick={() => setIsOpen((prev: any) => !prev)}
             >
               {isOpen ? <BsX size={32} /> : <HambergerMenu size={32} />}
-            </span>{" "}
-            <Link to={"/"}>
+            </span>{' '}
+            <Link to={'/'}>
               <img
                 src={Medassist}
                 alt="MedAssist Logo"
@@ -66,8 +66,8 @@ const MobileNav = () => {
       <div
         onClick={() => setIsOpen(false)}
         className={twMerge(
-          "fixed top-0 z-40 h-full w-full bg-black bg-opacity-45 duration-300 lg:hidden",
-          isOpen ? "left-0" : "-left-full",
+          'fixed top-0 z-40 h-full w-full bg-black bg-opacity-45 duration-300 lg:hidden',
+          isOpen ? 'left-0' : '-left-full',
         )}
       >
         <div className="w-[300px]" onClick={(e) => e.stopPropagation()}>

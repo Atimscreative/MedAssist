@@ -4,7 +4,7 @@ import { useState } from 'react';
 import AddMedication from '../../components/dashboard-components/modals/AddMedication';
 import { Edit, Trash } from 'iconsax-react';
 
-const steps = ['add medications', 'usage'];
+// const steps = ['add medications', 'usage'];
 
 const MedicationManagement = () => {
   const [isOpen, setIsOpen] = useState(false);

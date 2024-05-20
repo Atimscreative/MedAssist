@@ -1,10 +1,4 @@
-import { CgSearch } from "react-icons/cg";
-import { drugs as medications } from "../../utils/medication";
-import { useEffect, useState } from "react";
-
 const Modal = () => {
-  
-
   return (
     <div className="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-black bg-opacity-50">
       <div className="w-auto rounded-[20px]  bg-white">
@@ -16,8 +10,6 @@ const Modal = () => {
             <div className="h-full w-1/2 bg-black"></div>
           </div>
         </div>
-
-  
       </div>
     </div>
   );

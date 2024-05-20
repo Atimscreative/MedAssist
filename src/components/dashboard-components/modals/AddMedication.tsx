@@ -3,12 +3,6 @@ import { twMerge } from 'tailwind-merge';
 import { drugs as medications } from '../../../utils/medication';
 import { CgSearch } from 'react-icons/cg';
 import Button from '../../Button';
-import SelectOption from '../../SelectOption';
-import {
-  durationOptions,
-  medForm,
-  timeIntervalOptions,
-} from '../../../utils/data';
 import MedicationInfos from './Medication';
 import EachElement from '../../../utils/helper/EachElement';
 
@@ -100,16 +94,16 @@ const MedicationList = ({ onClick }: { onClick: any }) => {
   );
 };
 
-const AddMedication: React.FC<AddMedProps> = ({ isOpen, setIsOpen }) => {
+const AddMedication: React.FC<AddMedProps> = ({ isOpen }) => {
   const [currentStep, setCurrentStep] = useState(0);
 
   const nextStep = () => {
     setCurrentStep((prev) => prev + 1);
   };
 
-  const handleDone = () => {
-    setIsOpen(true);
-  };
+  // const handleDone = () => {
+  //   setIsOpen(true);
+  // };
 
   const renderStep = () => {
     switch (currentStep) {

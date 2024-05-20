@@ -5,7 +5,7 @@ type AddReminderProps = {
   setIsOpen: any;
 };
 
-const AddReminder: React.FC<AddReminderProps> = ({ isOpen, setIsOpen }) => {
+const AddReminder: React.FC<AddReminderProps> = ({ isOpen }) => {
   return (
     <div
       className={twMerge(
